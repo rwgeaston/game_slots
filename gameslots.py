@@ -98,7 +98,7 @@ def final_checks(board):
     for team, pairings in teams_paired_with_by_team.iteritems():
         colours_paired_with_by_team[team] = set([get_colour(pair) for pair in pairings])
     total_colours_paired_with = sum([len(colours) for colours in colours_paired_with_by_team.values()])
-    if total_teams_paired_with < len(teams) * 2:
+    if total_colours_paired_with < len(teams) * 2:
         return False
 
     return teams_paired_with_by_team, colours_paired_with_by_team
