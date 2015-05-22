@@ -91,14 +91,14 @@ def final_checks(board):
             teams_paired_with_by_team[teams_this_timeslot[1]].add(teams_this_timeslot[0])
 
     total_teams_paired_with = sum([len(teams) for teams in teams_paired_with_by_team.values()])
-    if total_teams_paired_with < len(teams) * 4:
+    if total_teams_paired_with < len(team_map) * 4:
         return False
 
     colours_paired_with_by_team = {}
     for team, pairings in teams_paired_with_by_team.iteritems():
         colours_paired_with_by_team[team] = set([get_colour(pair) for pair in pairings])
     total_colours_paired_with = sum([len(colours) for colours in colours_paired_with_by_team.values()])
-    if total_colours_paired_with < len(teams) * 2:
+    if total_colours_paired_with < len(team_map) * 2:
         return False
 
     return teams_paired_with_by_team, colours_paired_with_by_team
